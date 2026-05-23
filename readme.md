@@ -1,5 +1,13 @@
 # Quantum Mechanical Keyboard Firmware
 
+## FORK info
+
+This is a fork of the 1.0.0 firmware that adds a custom RGB light scheme that's basically a "wave" except that the keys are lit blue by default and the wave is cyan. The num lock and caps lock keys glow when engaged. The modifier keys will shift the base color to various colors when pressed.
+
+This fork is for my K5. No idea if it will work on other keyboards.
+
+## Back to your regularly scheduled readme...
+
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/Uq7gcHh)
 [![Docs Status](https://img.shields.io/badge/docs-ready-orange.svg)](https://docs.qmk.fm)
