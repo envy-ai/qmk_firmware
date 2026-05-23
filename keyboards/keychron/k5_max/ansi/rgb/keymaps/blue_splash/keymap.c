@@ -24,6 +24,13 @@ enum layers {
     WIN_FN,
 };
 
+#define BLUE_SPLASH_NUM_LOCK_LED 37
+#define BLUE_SPLASH_CAPS_LOCK_LED 62
+
+#define BLUE_SPLASH_LOCK_R 0x00
+#define BLUE_SPLASH_LOCK_G 0xFF
+#define BLUE_SPLASH_LOCK_B 0xFF
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT_108_ansi(
@@ -70,4 +77,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void keyboard_post_init_user(void) {
     rgb_matrix_enable_noeeprom();
     rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_BLUE_BASE_SOLID_SPLASH);
+}
+
+bool rgb_matrix_indicators_user(void) {
+    led_t led_state = host_keyboard_led_state();
+
+    if (led_state.num_lock) {
+        rgb_matrix_set_color(BLUE_SPLASH_NUM_LOCK_LED, BLUE_SPLASH_LOCK_R, BLUE_SPLASH_LOCK_G, BLUE_SPLASH_LOCK_B);
+    }
+
+    if (led_state.caps_lock) {
+        rgb_matrix_set_color(BLUE_SPLASH_CAPS_LOCK_LED, BLUE_SPLASH_LOCK_R, BLUE_SPLASH_LOCK_G, BLUE_SPLASH_LOCK_B);
+    }
+
+    return true;
 }
